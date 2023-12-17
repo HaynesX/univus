@@ -8,8 +8,13 @@ export const ThemeProvider = ({ children }) => {
   const [isDark, setIsDark] = useState(true); // Default mode is dark
 
   // Toggle between light and dark themes
-  const toggleTheme = () => {
-    setIsDark(!isDark);
+  const toggleTheme = (mode) => {
+
+    if (mode === 'light') {
+      setIsDark(false);
+    } else {
+      setIsDark(true);
+    }
   };
 
   return (
