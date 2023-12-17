@@ -15,7 +15,7 @@ const HomeStack = () => {
 
   return (
     <Stack.Navigator>
-        <Stack.Screen name="Home" component={TabGroup} options={{
+        <Stack.Screen name="MainHomeTabGroup" component={TabGroup} options={{
             headerShown: false
         }} />
         <Stack.Screen name="Another" component={AnotherScreen} />
