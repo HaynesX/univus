@@ -4,6 +4,14 @@ const initialState = {
   isLoading: false,
   isSignout: false,
   userToken: null,
+  user: {
+    accountType: null,
+    username: null,
+    email: null,
+    verified: false,
+    token: null,
+    
+  },
 };
 
 export const authSlice = createSlice({
@@ -27,10 +35,23 @@ export const authSlice = createSlice({
     },
     setUserToken: (state, action) => {
       state.userToken = action.payload;
+  },
+  setUser: (state, action) => {
+    state.user = action.payload;
+},
+setDefaultUser: (state) => {
+  state.user = {
+    accountType: null,
+    username: null,
+    email: null,
+    verified: false,
+    token: null,
+    
   }
+},
   },
 });
 
-export const { restoreToken, signIn, signOut, setIsLoading, setUserToken } = authSlice.actions;
+export const { restoreToken, signIn, signOut, setIsLoading, setUser, setDefaultUser  } = authSlice.actions;
 
 export default authSlice.reducer;

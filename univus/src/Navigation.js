@@ -4,6 +4,7 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import DrawerGroup from './navigation/DrawerGroup'
 import AuthStack from './navigation/AuthStack'
+import VerifyEmailStack from './navigation/VerifyEmailStack'
 import { useTheme } from './ThemeContext'
 import { useStyling } from './useStyling'
 
@@ -13,7 +14,9 @@ import { setIsLoading } from './store/slices/authSlice';
 const Navigation = () => {
 
   const dispatch = useDispatch();
-  const { userToken } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
+
+
 
   const Stack = createNativeStackNavigator();
 
@@ -21,8 +24,9 @@ const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        { userToken === null && <Stack.Screen name="Auth" component={AuthStack} options={{ headerShown: false }}/>}
-        { userToken !== null && <Stack.Screen name="MainApp" component={DrawerGroup} options={{ headerShown: false }}/>}
+        { user.token === null && <Stack.Screen name="Auth" component={AuthStack} options={{ headerShown: false }}/>}
+        { user.token !== null && user.verified && <Stack.Screen name="MainApp" component={DrawerGroup} options={{ headerShown: false }}/>}
+        { user.token !== null && !user.verified && <Stack.Screen name="Verify" component={VerifyEmailStack} options={{ headerShown: false }}/>}
       </Stack.Navigator>
     </NavigationContainer>
   )

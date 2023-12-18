@@ -11,9 +11,58 @@ import { loadFonts } from './src/store/slices/appInitSlice';
 import { setIsLoading } from './src/store/slices/authSlice';
 
 import * as SplashScreen from 'expo-splash-screen';
+import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
 
 const Root = () => {
-    const { toggleTheme } = useTheme(); // Use theme from context
+
+
+  
+  const { theme, toggleTheme } = useTheme(); // Use theme from context
+
+const toastConfig = {
+  success: (props) => (
+    <BaseToast
+      {...props}
+      style={{ borderLeftColor: theme.primary, marginTop: 20, backgroundColor: theme.toastBackground, borderRadius: 10, borderColor: theme.border, borderWidth: 2 }}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      text1Style={{
+        color: theme.text,
+        fontSize: 16,
+        fontFamily: 'Inter-Medium',
+      }}
+      text2Style={{
+        color: theme.secondary,
+        fontSize: 14,
+        fontFamily: 'Inter-Regular',
+      }}
+    />
+  ),
+
+  error: (props) => (
+    <ErrorToast
+      {...props}
+      style={{ borderLeftColor: theme.destructive, marginTop: 20, backgroundColor: theme.toastBackground, borderRadius: 10, borderColor: theme.border, borderWidth: 2 }}
+      contentContainerStyle={{ paddingHorizontal: 15 }}
+      text1Style={{
+        color: theme.text,
+        fontSize: 16,
+        fontFamily: 'Inter-Medium',
+      }}
+      text2Style={{
+        color: theme.secondary,
+        fontSize: 14,
+        fontFamily: 'Inter-Regular',
+      }}
+    />
+  )
+};
+
+
+
+
+
+
+    
     const currentTheme = useColorScheme();
     const dispatch = useDispatch();
 
@@ -51,7 +100,10 @@ const Root = () => {
 
 
   return (
-    <Navigation />
+    <>
+      <Navigation />
+      <Toast config={toastConfig} />
+    </>
   )
 }
 

@@ -2,6 +2,7 @@
 export const lightTheme = {
     background: '#FFFFFF',
     oppositeBackground: '#030712',
+    toastBackground: '#FFFFFF',
     text: '#030712',
     oppositeText: '#FFFFFF',
     border: '#E6E7EB',
@@ -22,6 +23,7 @@ export const lightTheme = {
   export const darkTheme = {
     background: '#030712',
     oppositeBackground: '#FFFFFF',
+    toastBackground: '#1F2937',
     text: '#FFFFFF',
     oppositeText: '#030712',
     border: '#1F2937',

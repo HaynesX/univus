@@ -49,9 +49,10 @@ const SignUpUsernameScreen = ({ route }) => {
 
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView style={[styles.Default.safeView]}>
         <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : "height"}>
-            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            {/* <TouchableWithoutFeedback onPress={Keyboard.dismiss}> */}
 
 
 
@@ -107,9 +108,10 @@ const SignUpUsernameScreen = ({ route }) => {
 
 
 
-            </TouchableWithoutFeedback>
+            {/* </TouchableWithoutFeedback> */}
       </KeyboardAvoidingView>
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   )
 }
 

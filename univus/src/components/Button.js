@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { useStyling } from '../useStyling'; 
 
 
-const Button = ({ style = {}, textStyle = {}, text = 'Button', icon = null, onPress = null, loading = false, loadingColor = 'white' }) => {
+const Button = ({ style = {}, textStyle = {}, text = 'Button', icon = null, onPress = null, loading = false, disabled = false, loadingColor = 'white' }) => {
   const styles = useStyling();
 
   let dynamicStyle = loading ? styles.Button.loadingButton : styles.Button.button;
@@ -15,7 +15,7 @@ const Button = ({ style = {}, textStyle = {}, text = 'Button', icon = null, onPr
   }, [loading]);
 
   return (
-    <TouchableOpacity onPress={onPress} style={[dynamicStyle, style]} disabled={loading}>
+    <TouchableOpacity onPress={onPress} style={[dynamicStyle, style]} disabled={loading || disabled}>
       {loading ? (
         <>
           <ActivityIndicator color={loadingColor} /> 
