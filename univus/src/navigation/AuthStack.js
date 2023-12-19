@@ -5,6 +5,8 @@ import SignUpUsernameScreen from '../screens/SignUpUsernameScreen'
 import SignUpPasswordScreen from '../screens/SignUpPasswordScreen'
 import SignUpEmailScreen from '../screens/SignUpEmailScreen'
 import SignUpVerifyEmailScreen from '../screens/SignUpVerifyEmailScreen'
+import SignUpInstitutionSelect from '../screens/SignUpInstitutionSelect'
+import SignUpInstitutionEmailScreen from '../screens/SignUpInstitutionEmailScreen'
 import React from 'react'
 
 import { useTheme } from '../ThemeContext'
@@ -34,6 +36,10 @@ const AuthStack = () => {
         <StackNavigator.Screen name="SignUpPasswordScreen" component={SignUpPasswordScreen} />
         <StackNavigator.Screen name="SignUpEmailScreen" component={SignUpEmailScreen} />
         <StackNavigator.Screen name="SignUpVerifyEmailScreen" component={SignUpVerifyEmailScreen} />
+
+
+        <StackNavigator.Screen name="SignUpInstitutionSelect" component={SignUpInstitutionSelect} />
+        <StackNavigator.Screen name="SignUpInstitutionEmailScreen" component={SignUpInstitutionEmailScreen} />
 
 
 
